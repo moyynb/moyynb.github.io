@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叫爹</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        #confirmBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #cancelBtn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>我是你爸爸吗?</h2>
+        <button id="confirmBtn">是的</button>
+        <button id="cancelBtn">不是</button>
+    </div>
+
+    <script>
+        // 获取按钮元素
+        const confirmBtn = document.getElementById('confirmBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        let scale = 1; // 初始缩放比例
+
+        // 确定按钮点击事件 - 跳转到指定网页
+        confirmBtn.addEventListener('click', () => {
+            window.location.href = '.html'; // 可替换为其他网址
+        });
+
+        // 取消按钮点击事件 - 每次点击增大10%
+        cancelBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // 防止默认行为
+            scale += 1; // 每次增加10%的缩放比例
+            cancelBtn.style.transform = `scale(${scale})`; // 应用缩放
+        });
+    </script>
+</body>
+</html>
